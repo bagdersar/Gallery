@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% block title %} {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='theme.css') }}" rel="stylesheet">
+</head>
+{% if request.endpoint=='add_link' or request.endpoint=='edit' %}
+<body style="background-image: url('/static/new_back.jpg');">
+
+{% else %}
+<body>
+{% endif %}
+
+
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light", style="max-height: 48px; background-color: #FFFAFA;">
+  	<div class="container-fluid">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 25px;">
+	        <li class="nav-item">
+	          <a class="nav-link {{'active' if request.endpoint == 'home' }}" aria-current="page" href="/" style="margin-right: 22px">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link {{'active' if request.endpoint == 'add_link'}}" href="/add_link" style="margin-right: 22px">Picture of the Day</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link {{'active' if request.endpoint == 'gallery' }}" aria-current="page" href="/gallery">My Personal Gallery</a>
+	        </li>
+	      </ul> 
+	  </div>
+	</nav>
+
+{% block content %} {% endblock %}
+</body>
+</html>

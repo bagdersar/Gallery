@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Picture of the Day{% endblock %}
+
+{% block content %}
+
+
+<div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+
+    	<div class="row">
+        <div>
+
+          <div class="card mt-4" style = "border-color: #404040;">
+            <div class="card-header" style="background-color: #FFFAFA;">
+              <div class="d-flex flex-row justify-content-center">
+                <h3 class="text-black" style="font-family: Lucinda Console;">Picture of the Day</h3>
+              </div>
+            </div>
+            <div class="card-body"  style="border-color:#404040; background-color: #FFFAFA;"> 
+              <form method="POST" action="/edit/{{results[0]['id']}}">
+                <div class="form-group mt-3">
+                  <label for="image_url">
+                  	<div style="margin-bottom: 10px;">
+                  	Please, enter the link of the picture:	
+                  	</div>
+                  </label>
+                  <input type="text" class="form-control" id="image_url" name="image_url" value="{{results[0]['image_url']}}" required>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="title">
+                  	<div style="margin-bottom: 10px;">
+                  	Title:
+                  </div>
+                  </label>
+                  <input type="text" class="form-control" id="title" name="title" value="{{results[0]['title']}}" required>
+                </div>	
+                <div class="form-group mt-3">
+                  <label for="title">
+                  	<div style="margin-bottom: 10px;">
+                  	Year of Publication:
+                    </div>
+                  </label>
+                  <input type="text" class="form-control" id="year_of_publication" name="year_of_publication" value="{{results[0]['year_of_publication']}}" required>
+                </div>	
+                <div class="form-group mt-3">
+                  <label for="title">
+                  	<div style="margin-bottom: 10px;">
+                  	Author:
+                  	</div>
+                  </label>
+                  <input type="text" class="form-control" id="author" name="author" value="{{results[0]['author']}}" required>
+                </div>
+                <button type="submit" class="text-white mt-4" style="width: 120px; background-color: #404040; font-family: Lucinda Console; font-size: 17px;">Edit</button>
+            </form>
+               
+          </div>
+        </div>
+      </div>
+	</div>
+{% endblock %}
